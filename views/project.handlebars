@@ -1,0 +1,20 @@
+{{! TODO: Change filename to 'item.handlebars', make sure other files reflect changes }}
+{{! TODO: Contextually modify 'funding' to be 'price' }}
+{{! TODO: Add item image between name & description (image may be higher-res than on homepage, Cloudinary can auto-compress media) }}
+{{! TODO: Add functionality for 'contact seller' button to show seller's preferred contact info (preference option in user profile) }}
+{{! TODO (stretch-goal): Remove category emoji if not implemented in utils/helpers.js }}
+
+<div class='text-center'>
+  <h2>{{name}}</h2>
+  <p>{{{get_emoji}}}</p>
+  <p>{{description}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <p>
+    <span for='img' aria-label='money'>💲</span>
+    Price
+    <span class='dollar-amount'>{{format_amount needed_funding}}</span>
+  </p>
+  <p>
+    <button class='btn btn-primary'>Contact Seller</button>
+  </p>
+</div>

@@ -1,0 +1,71 @@
+{{! TODO: Change all instances of 'project' to instead be called 'item' (keep same pluralization & capitalization) }}
+{{! TODO: Contextually modify 'funding' to be 'price', if necessary change text content to match (I've changed some already) }}
+{{! TODO: Add user settings section, add options for users to select their contact preference (displaying current selection), and upload/change a profile picture to replace the default }}
+{{! TODO (stretch-goal): Add functionality & button for user to edit their contact information }}
+{{! TODO (stretch-goal): Add functionality & button for user to edit their active listings }}
+
+<div class='row'>
+  <div class='col-auto'>
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class='row mt-4'>
+  <div class='col-md-6'>
+    <h3>Create a New Listing:</h3>
+
+    <form class='form new-project-form'>
+      <div class='form-group'>
+        <label for='project-name'>item name:</label>
+        <input
+          class='form-input'
+          type='text'
+          id='project-name'
+          name='project-name'
+        />
+      </div>
+      <div class='form-group'>
+        <label for='project-funding'>item price ($):</label>
+        <input
+          class='form-input'
+          type='number'
+          id='project-funding'
+          name='project-funding'
+        />
+      </div>
+      <div class='form-group'>
+        <label for='project-desc'>item description:</label>
+        <textarea
+          class='form-input'
+          id='project-desc'
+          name='project-desc'
+        ></textarea>
+      </div>
+      <div class='form-group'>
+        <button type='submit' class='btn btn-primary'>Create Listing</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if projects.length}}
+    <div class='col-md-6 project-list'>
+      <h3>Your Listings:</h3>
+
+      {{#each projects as |project|}}
+        <div class='row mb-2'>
+          <div class='col-md-8'>
+            <h4><a href='/project/{{project.id}}'>{{project.name}}</a></h4>
+          </div>
+          <div class='col-md-4'>
+            <button
+              class='btn btn-sm btn-danger'
+              data-id='{{project.id}}'
+            >DELETE</button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
+
+<script src='./js/profile.js'></script>
