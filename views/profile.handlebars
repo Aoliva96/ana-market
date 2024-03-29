@@ -1,4 +1,4 @@
-{{! TODO: Change all instances of 'project' to instead be called 'item' (keep same pluralization & capitalization) }}
+{{! TODO: Change all instances of 'item' to instead be called 'item' (keep same pluralization & capitalization) }}
 {{! TODO: Contextually modify 'funding' to be 'price', if necessary change text content to match (I've changed some already) }}
 {{! TODO: Add user settings section, add options for users to select their contact preference (displaying current selection), and upload/change a profile picture to replace the default }}
 {{! TODO (stretch-goal): Add functionality & button for user to edit their contact information }}
@@ -14,32 +14,23 @@
   <div class='col-md-6'>
     <h3>Create a New Listing:</h3>
 
-    <form class='form new-project-form'>
+    <form class='form new-item-form'>
       <div class='form-group'>
-        <label for='project-name'>item name:</label>
-        <input
-          class='form-input'
-          type='text'
-          id='project-name'
-          name='project-name'
-        />
+        <label for='item-name'>item name:</label>
+        <input class='form-input' type='text' id='item-name' name='item-name' />
       </div>
       <div class='form-group'>
-        <label for='project-funding'>item price ($):</label>
+        <label for='item-funding'>item price ($):</label>
         <input
           class='form-input'
           type='number'
-          id='project-funding'
-          name='project-funding'
+          id='item-price'
+          name='item-price'
         />
       </div>
       <div class='form-group'>
-        <label for='project-desc'>item description:</label>
-        <textarea
-          class='form-input'
-          id='project-desc'
-          name='project-desc'
-        ></textarea>
+        <label for='item-desc'>item description:</label>
+        <textarea class='form-input' id='item-desc' name='item-desc'></textarea>
       </div>
       <div class='form-group'>
         <button type='submit' class='btn btn-primary'>Create Listing</button>
@@ -47,19 +38,19 @@
     </form>
   </div>
 
-  {{#if projects.length}}
-    <div class='col-md-6 project-list'>
+  {{#if items.length}}
+    <div class='col-md-6 item-list'>
       <h3>Your Listings:</h3>
 
-      {{#each projects as |project|}}
+      {{#each items as |item|}}
         <div class='row mb-2'>
           <div class='col-md-8'>
-            <h4><a href='/project/{{project.id}}'>{{project.name}}</a></h4>
+            <h4><a href='/item/{{item.id}}'>{{item.name}}</a></h4>
           </div>
           <div class='col-md-4'>
             <button
               class='btn btn-sm btn-danger'
-              data-id='{{project.id}}'
+              data-id='{{item.id}}'
             >DELETE</button>
           </div>
         </div>
