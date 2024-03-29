@@ -1,4 +1,4 @@
-header, .project:not(:last-child) {
+header, .item:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
