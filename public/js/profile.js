@@ -6,13 +6,15 @@ const newFormHandler = async (event) => {
   // TODO (stretch-goal): Add contact info and/or item edit button handlers
 
   const name = document.querySelector('#item-name').value.trim();
-  const needed_funding = document.querySelector('#item-funding').value.trim();
+  const price = document.querySelector('#item-funding').value.trim();
   const description = document.querySelector('#item-desc').value.trim();
+  const date = document.querySelector('#item-date').value.trim();
+  const image = document.querySelector('#item-image').value.trim();
 
-  if (name && needed_funding && description) {
+  if (name && price && description && date && image) {
     const response = await fetch(`/api/items`, {
       method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({ name, price, description, date, image }),
       headers: {
         'Content-Type': 'application/json',
       },

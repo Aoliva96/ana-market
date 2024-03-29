@@ -2,7 +2,7 @@
   {
     "name": "Music Near Me",
     "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-    
+    "date_created":"tbd",
     "price": 5000,
     "image": "image1"
     
@@ -11,12 +11,14 @@
   {
     "name": "The Ultimate Tech Quiz",
     "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
+    "date_created":"tbd",
     "price": 10000,
     "image": "image1"
   },
   {
     "name": "Roll 'Em Up",
     "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
+    "date_created":"tbd",
     "price": 800,
     "image": "image1"
   }

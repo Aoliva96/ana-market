@@ -22,7 +22,7 @@ Item.init(
       type: DataTypes.STRING,
     },
     date_created: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
