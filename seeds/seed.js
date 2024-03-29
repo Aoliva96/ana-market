@@ -1,10 +1,10 @@
 // TODO: Change all instances of 'project' to 'item' (keep same pluralization & capitalization)
 
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
+const { User, Item } = require('../models');
 
 const userData = require('./userData.json');
-const projectData = require('./projectData.json');
+const itemData = require('./itemData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -14,9 +14,9 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
+  for (const item of itemData) {
+    await Item.create({
+      ...item,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
