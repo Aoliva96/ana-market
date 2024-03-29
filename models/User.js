@@ -30,6 +30,13 @@ User.init(
         isEmail: true,
       },
     },
+    phone: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      validate: {
+        len: [10,10],
+      },
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
