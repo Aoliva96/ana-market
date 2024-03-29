@@ -26,7 +26,7 @@ Item.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    price: {
+    item_price: {
       type: DataTypes.FLOAT,
       allowNull: false,
     },

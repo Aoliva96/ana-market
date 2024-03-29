@@ -2,7 +2,7 @@
 {{! TODO: Contextually change 'needed-funding' to 'item-price' }}
 {{! TODO: Item previews should only show an image, the item name, and price. Users must login to view item details }}
 
-<!-- Loop over each object in the projects array -->
+<!-- Loop over each object in the items array -->
 {{#each items as |item|}}
   <div class='row mb-4 item'>
     <div class='col-md-5'>
@@ -13,7 +13,7 @@
       </h2>
       <p>
         <span for='img' aria-label='money'>💲</span>
-        <!-- Pass item_price value to the helper function -->
+        <!-- Pass item price value to the helper function -->
         <span class='dollar-amount'>{{format_amount item.item_price}}</span>
       </p>
       <p>Listed by

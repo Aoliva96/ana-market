@@ -1,5 +1,3 @@
-// TODO: Add 'phone' and 'contactPref' to user object
-
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
@@ -34,7 +32,7 @@ User.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       validate: {
-        len: [10,10],
+        len: [10, 10],
       },
     },
     password: {

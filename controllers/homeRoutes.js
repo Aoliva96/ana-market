@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/item/:id', withAuth, async (req, res) => {
+router.get('/item/:id', async (req, res) => {
   try {
     const itemData = await Item.findByPk(req.params.id, {
       include: [
@@ -47,7 +47,6 @@ router.get('/item/:id', withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log('err', err);
     res.status(500).json(err);
   }
 });

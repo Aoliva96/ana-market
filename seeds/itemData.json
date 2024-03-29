@@ -1,23 +1,20 @@
 [
   {
-    "name": "Music Near Me",
-    "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-    
-    "price": 5000,
-    "image": "image1"
-    
-    
-  },
-  {
-    "name": "The Ultimate Tech Quiz",
-    "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-    "price": 10000,
+    "name": "Dress Shoes",
+    "description": "A nice pair of new dress shoes, size 10, only worn once.",
+    "item_price": 80,
     "image": "image1"
   },
   {
-    "name": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-    "price": 800,
-    "image": "image1"
+    "name": "Designer Handbag",
+    "description": "Gucci I think, brand new, still has retail tags.",
+    "item_price": 5000,
+    "image": "image2"
+  },
+  {
+    "name": "Car Parts",
+    "description": "Car broke down, $500 up-front, come take whatever you want out of it.",
+    "item_price": 500,
+    "image": "image3"
   }
 ]

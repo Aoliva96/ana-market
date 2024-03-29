@@ -1,5 +1,3 @@
-// TODO: Change all instances of 'project' to 'item' (keep same pluralization & capitalization)
-
 const sequelize = require('../config/connection');
 const { User, Item } = require('../models');
 
