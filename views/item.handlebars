@@ -5,7 +5,7 @@
 {{! TODO (stretch-goal): Remove category emoji if not implemented in utils/helpers.js }}
 
 <div class='text-center'>
-
+{{#if logged_in}}
   <h2>{{name}}</h2>
   <p>{{{get_emoji}}}</p>
   <p>{{description}}</p>
@@ -13,10 +13,23 @@
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p>
     <span for='img' aria-label='money'>💲</span>
+    Price
     <span class='dollar-amount'>{{format_amount item_price}}</span>
   </p>
   <p>
     <button class='btn btn-primary'>Contact Seller</button>
   </p>
+{{else}}
+<a id="login-link" href="#" onclick="redirectToLoginPage(); return false;">Login or Sign Up to See More</a>
 
+{{/if}}
 </div>
+<script>
+  function redirectToLoginPage() {
+    // Save current page URL to localStorage
+    localStorage.setItem('returnUrl', window.location.href);
+
+    // Redirect to login page
+    window.location.href = '/login';
+  }
+</script>

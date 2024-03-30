@@ -14,8 +14,17 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
+      // Retrieve return URL from localStorage
+      const returnUrl = localStorage.getItem('returnUrl');
+
+      // If return URL exists, redirect to it
+      if (returnUrl) {
+        localStorage.removeItem('returnUrl'); // Remove returnUrl from storage
+        document.location.replace(returnUrl);
+      } else {
+        // If successful, redirect the browser to the profile page
+        document.location.replace('/profile');
+      }
     } else {
       alert(response.statusText);
     }
@@ -38,10 +47,8 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      console.log('The user was submitted');
       document.location.replace('/profile');
     } else {
-      console.log('user was not submitted');
       alert(response.statusText);
     }
   }
