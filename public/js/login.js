@@ -38,8 +38,10 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      console.log('The user was submitted');
       document.location.replace('/profile');
     } else {
+      console.log('user was not submitted');
       alert(response.statusText);
     }
   }

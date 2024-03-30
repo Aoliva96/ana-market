@@ -8,11 +8,12 @@ const newFormHandler = async (event) => {
   const name = document.querySelector('#item-name').value.trim();
   const item_price = document.querySelector('#item-price').value.trim();
   const description = document.querySelector('#item-desc').value.trim();
+  const image = document.querySelector('#item-image').value.trim();
 
-  if (name && needed_funding && description) {
+  if (name && item_price && description && image) {
     const response = await fetch(`/api/items`, {
       method: 'POST',
-      body: JSON.stringify({ name, item_price, description }),
+      body: JSON.stringify({ name, item_price, description, image }),
       headers: {
         'Content-Type': 'application/json',
       },

@@ -29,11 +29,8 @@ User.init(
       },
     },
     phone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
-      validate: {
-        len: [10, 10],
-      },
     },
     password: {
       type: DataTypes.STRING,
