@@ -1,11 +1,13 @@
 {{! TODO: Change filename to 'item.handlebars', make sure other files reflect changes }}
 {{! TODO: Contextually modify 'funding' to be 'price' }}
-{{! TODO: Add item image between name & description (image may be higher-res than on homepage, Cloudinary can auto-compress media) }}
-{{! TODO: Add functionality for 'contact seller' button to show seller's preferred contact info (preference option in user profile) }}
+{{! TODO: Add item image between name & description (image may be higher-res than on homepage, Cloudinary can
+auto-compress media) }}
+{{! TODO: Add functionality for 'contact seller' button to show seller's preferred contact info (preference option in
+user profile) }}
 {{! TODO (stretch-goal): Remove category emoji if not implemented in utils/helpers.js }}
 
 <div class='text-center'>
-{{#if logged_in}}
+  {{#if logged_in}}
   <h2>{{name}}</h2>
   <p>{{{get_emoji}}}</p>
   <p>{{description}}</p>
@@ -17,19 +19,37 @@
     <span class='dollar-amount'>{{format_amount item_price}}</span>
   </p>
   <div id="contact-info">
-  <p>Contact Seller:</p>
-  <p>Email: {{user.email}}</p>
-  <p>Phone: {{user.phone}}</p>
+    <p>Contact Seller:</p>
+    <p>Email: {{user.email}}</p>
+    <p>Phone: {{user.phone}}</p>
   </div>
   <p>
     <button id="toggle-contact-info" class='btn btn-primary'>Contact Seller</button>
   </p>
-{{else}}
-<a id="login-link" href="#" onclick="redirectToLoginPage(); return false;">Login or Sign Up to See More</a>
+  {{else}}
+  <a id="login-link" href="#" onclick="redirectToLoginPage(); return false;">Login or Sign Up to See More</a>
 
-{{/if}}
+  {{/if}}
 </div>
 <script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const contactButton = document.getElementById('toggle-contact-info');
+    const contactInfo = document.getElementById('contact-info');
+
+    if (contactButton && contactInfo) {
+      contactButton.addEventListener('click', function () {
+        if (contactInfo.style.display === 'none') {
+          contactInfo.style.display = 'block';
+          contactButton.textContent = 'Hide Contact Information';
+        } else {
+          contactInfo.style.display = 'none';
+          contactButton.textContent = 'Contact Seller';
+        }
+      });
+    }
+  });
+
   function redirectToLoginPage() {
     // Save current page URL to localStorage
     localStorage.setItem('returnUrl', window.location.href);
