@@ -16,8 +16,13 @@
     Price
     <span class='dollar-amount'>{{format_amount item_price}}</span>
   </p>
+  <div id="contact-info">
+  <p>Contact Seller:</p>
+  <p>Email: {{user.email}}</p>
+  <p>Phone: {{user.phone}}</p>
+  </div>
   <p>
-    <button class='btn btn-primary'>Contact Seller</button>
+    <button id="toggle-contact-info" class='btn btn-primary'>Contact Seller</button>
   </p>
 {{else}}
 <a id="login-link" href="#" onclick="redirectToLoginPage(); return false;">Login or Sign Up to See More</a>
