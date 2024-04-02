@@ -26,9 +26,9 @@
       <p>
         {{item.description}}
       </p>
-      <p>
-        {{item.image}}
-      </p>
+      {{#if image}}
+        <img src="{{image}}" alt="Item Image">
+      {{/if}}
     </div>
   </div>
 {{/each}}

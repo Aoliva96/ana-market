@@ -3,13 +3,18 @@
 const router = require('express').Router();
 const { Item } = require('../../models');
 const withAuth = require('../../utils/auth');
+const parser = require('../../utils/cloudinary');
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', withAuth, parser.single('image'), async (req, res) => {
   try {
+    console.log("Request Body:", req.body);
+    const imageUrl = req.file ? req.file.secure_url : null;
     const newItem = await Item.create({
       ...req.body,
       user_id: req.session.user_id,
+      image: imageUrl,
     });
+    console.log("New Item:", newItem);
 
     res.status(200).json(newItem);
   } catch (err) {
