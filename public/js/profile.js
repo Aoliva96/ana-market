@@ -1,5 +1,35 @@
+const handleImageUploadSubmit = async (ev) => {
+  ev.preventDefault();
+
+  const imageFileFieldElement = document.querySelector("#item-image");
+  const formData = new FormData();
+
+  formData.append("image", imageFileFieldElement.files[0]);
+
+  try {
+    const response = await fetch("/api/images/upload", {
+      method: "POST",
+      body: formData,
+    }).then((res) => res.json());
+
+    console.log(response); // for debugging
+
+    // If the image was successfully uploaded, you can handle it as needed
+    if (response.success) {
+      alert("Image uploaded successfully!");
+    } else {
+      alert("Failed to upload image");
+    }
+  } catch (err) {
+    console.error("Error uploading image:", err);
+    alert("Failed to upload image");
+  }
+};
+
 const newFormHandler = async (event) => {
   event.preventDefault();
+
+  console.log("Submitting form data...");
 
   // TODO: Change all instances of 'project' to 'item' (keep same pluralization & capitalization)
   // TODO: Contextually change 'project-funding' to 'item-price'
@@ -8,20 +38,32 @@ const newFormHandler = async (event) => {
   const name = document.querySelector('#item-name').value.trim();
   const item_price = document.querySelector('#item-price').value.trim();
   const description = document.querySelector('#item-desc').value.trim();
-  const image = document.querySelector('#item-image').value.trim();
 
-  if (name && item_price && description && image) {
-    const response = await fetch(`/api/items`, {
-      method: 'POST',
-      body: JSON.stringify({ name, item_price, description, image }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  if (name && item_price && description) {
+    const postData = {
+      name,
+      item_price,
+      description,
+    };
+    console.log("postData:", postData);
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
+    try {
+      const response = await fetch(`/api/items`, {
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log("Response:", response);
+
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to create item');
+      }
+    } catch (error) {
+      console.error('Error creating item:', error);
       alert('Failed to create item');
     }
   }
