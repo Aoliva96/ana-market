@@ -1,6 +1,5 @@
 {{! TODO: Add user settings section, add options for users to select their contact preference (displaying current selection), and upload/change a profile picture to replace the default }}
-{{! TODO (stretch-goal): Add functionality & button for user to edit their contact information }}
-{{! TODO (stretch-goal): Add functionality & button for user to edit their active listings }}
+{{! TODO: Add functionality & buttons for editing contact info & active listings }}
 
 <div class='row'>
   <div class='col-auto'>
@@ -32,7 +31,13 @@
       </div>
       <div class='form-group'>
         <label for='item-image'>Image:</label>
-        <input class='form-input' type='file' id='item-image' name='item-image' accept="image/*" />
+        <input
+          class='form-input'
+          type='file'
+          id='item-image'
+          name='item-image'
+          accept='image/*'
+        />
       </div>
       <div class='form-group'>
         <button type='submit' class='btn btn-primary'>Create Listing</button>

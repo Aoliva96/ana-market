@@ -22,4 +22,31 @@ module.exports = {
       return `<span for="img" aria-label="gear">⚙️</span>`;
     }
   },
+  contact_seller: () => {
+    document.addEventListener('DOMContentLoaded', function () {
+      const contactButton = document.getElementById('toggle-contact-info');
+      const contactInfo = document.getElementById('contact-info');
+
+      if (contactButton && contactInfo) {
+        contactButton.addEventListener('click', function () {
+          if (contactInfo.style.display === 'none') {
+            contactInfo.style.display = 'block';
+            contactButton.textContent = 'Hide Contact Information';
+          } else {
+            contactInfo.style.display = 'none';
+            contactButton.textContent = 'Contact Seller';
+          }
+        });
+      }
+    });
+  },
+  redirect_user: () => {
+    function redirectToLoginPage() {
+      // Save current page URL to localStorage
+      localStorage.setItem('returnUrl', window.location.href);
+
+      // Redirect to login page
+      window.location.href = '/login';
+    }
+  },
 };
