@@ -19,6 +19,7 @@
     </div>
     <p>
       <button id='toggle-contact-info' class='btn btn-primary'>Contact Seller</button>
+      <button type="submit" id='toggle-contact-info' class='btn btn-primary edit-button'>Edit Listing</button>  
     </p>
   {{else}}
     <a
@@ -29,27 +30,36 @@
 
   {{/if}}
 </div>
-{{! Call helper functions for seller info & redirect }}
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const contactButton = document.getElementById('toggle-contact-info');
-    const contactInfo = document.getElementById('contact-info');
-    if (contactButton && contactInfo) {
-      contactButton.addEventListener('click', function () {
-        if (contactInfo.style.display === 'none') {
-          contactInfo.style.display = 'block';
-          contactButton.textContent = 'Hide Contact Information';
-        } else {
-          contactInfo.style.display = 'none';
-          contactButton.textContent = 'Contact Seller';
-        }
-      });
-    }
-  });
-  function redirectToLoginPage() {
-    // Save current page URL to localStorage
-    localStorage.setItem('returnUrl', window.location.href);
-    // Redirect to login page
-    window.location.href = '/login';
-  }
+{{!-- update listing --}}
+<div class='row mt-4'>
+  <div class='col-md-6'>
+
+    <form class='form update-item-form' style ="display:none">
+        <h3> Update Listing:</h3>
+      <div class='form-group'>
+        <label for='update-item-name'>item name:</label>
+        <input class='form-input' type='text' id='update-item-name' name='update-item-name' />
+      </div>
+      <div class='form-group'>
+        <label for='update-item-price'>item price ($):</label>
+        <input
+          class='form-input'
+          type='number'
+          id='update-item-price'
+          name='update-item-price'
+        />
+      </div>
+      <div class='form-group'>
+        <label for='update-item-desc'>item description:</label>
+        <textarea class='form-input' id='update-item-desc' name='update-item-desc'></textarea>
+      </div>
+      <div class='form-group'>
+        <button type='submit' class='btn btn-primary'>Update Listing</button>
+      </div>
+
+    </form>
+  </div>
+  </div>
+
+<script src="/js/update.js">
 </script>

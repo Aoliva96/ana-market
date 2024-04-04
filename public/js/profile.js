@@ -2,7 +2,7 @@
 const newFormHandler = async (ev) => {
   ev.preventDefault();
 
-  console.log('Submitting form data...');
+  // console.log('Submitting form data...');
 
   const imageFileFieldElement = document.querySelector('#item-image');
   const formData = new FormData();
@@ -29,13 +29,12 @@ const newFormHandler = async (ev) => {
       document.location.replace('/profile');
       console.log(response);
     } else {
-      alert('Failed to create item');
       document.location.replace('/profile');
       console.log(response);
+      alert('Failed to create Item!');
     }
   } catch (error) {
-    console.error('Error creating item:', error);
-    alert('Failed to create item');
+    alert('Failed to create Item!');
   }
 };
 
@@ -82,46 +81,27 @@ const newFormHandler = async (ev) => {
 //   }
 // };
 
-// Delete existing item from list
+//delete functionality
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
+  const deleteButton = document.querySelector('.delete-button');
+
+  if (deleteButton) {
+    console.log('the delete works');
     const id = event.target.getAttribute('data-id');
 
-    try {
-      const response = await fetch(`/api/items/${id}`, {
-        method: 'DELETE',
-      });
+    const response = await fetch(`/api/items/${id}`, {
+      method: 'DELETE',
+    });
 
-      if (response.ok) {
-        alert('Deleted item successfully');
-        document.location.replace('/profile');
-        console.log(response);
-      } else {
-        alert('Failed to delete item');
-        console.log(response);
-      }
-    } catch (error) {
-      console.error('Error deleting item:', error);
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
       alert('Failed to delete item');
     }
+  } else {
+    console.log('the delete DOES NOT works');
   }
 };
-
-// const delButtonHandler = async (event) => {
-//   if (event.target.hasAttribute('data-id')) {
-//     const id = event.target.getAttribute('data-id');
-
-//     const response = await fetch(`/api/items/${id}`, {
-//       method: 'DELETE',
-//     });
-
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert('Failed to delete item');
-//     }
-//   }
-// };
 
 document
   .querySelector('.new-item-form')

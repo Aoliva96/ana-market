@@ -24,10 +24,40 @@ router.post('/', withAuth, parser.single('image'), async (req, res) => {
   }
 });
 
+//update
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const itemData = await Item.update(
+      {
+        name: req.body.name,
+        item_price: req.body.item_price,
+        description: req.body.description,
+      },
+      {
+        where: {
+          id: req.params.id,
+          user_id: req.session.user_id,
+        },
+      }
+    );
+
+    res.status(200).json(itemData);
+    console.log('itemData', itemData);
+  } catch (err) {
+    console.log('err', err);
+    res.status(500).json(err);
+  }
+});
+
 // Delete existing item from list
 router.delete('/:id', withAuth, parser.single('image'), async (req, res) => {
   try {
-    const itemData = await Item.findByPk(req.params.id);
+    const itemData = await Item.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
 
     if (!itemData) {
       res.status(404).json({ message: 'No item was found with this id!' });
@@ -35,22 +65,18 @@ router.delete('/:id', withAuth, parser.single('image'), async (req, res) => {
     }
 
     // Delete image from Cloudinary storage
-    await cloudinary.v2.uploader.destroy(itemData.imagePublicId).then(
-      res.status(200).json({
-        message: 'Item deleted from Cloudinary',
-      })
+    const deleteCloudinary = await cloudinary.v2.uploader.destroy(
+      itemData.imagePublicId
     );
-
-    await Item.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    }).then(
-      res.status(200).json({
-        message: 'Item deleted from DB',
-      })
-    );
+    if (deleteCloudinary) {
+      res.status(200).json({ message: 'Item deleted from Cloudinary!' });
+    } else {
+      console.log('Image not deleted from cloudinary');
+      // Send response indicating that item was deleted but image deletion failed
+      res
+        .status(200)
+        .json({ message: 'Item deleted, but image deletion failed.' });
+    }
   } catch (err) {
     res.status(500).json(err);
   }
