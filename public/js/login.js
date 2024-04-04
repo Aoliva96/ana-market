@@ -1,12 +1,12 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  // Collect values from the login form
+  // Collect values from login form
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
   if (email && password) {
-    // Send a POST request to the API endpoint
+    // Send POST request to API endpoint
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
@@ -17,16 +17,16 @@ const loginFormHandler = async (event) => {
       // Retrieve return URL from localStorage
       const returnUrl = localStorage.getItem('returnUrl');
 
-      // If return URL exists, redirect to it
+      // If return URL exists, delete from storage & redirect user
       if (returnUrl) {
-        localStorage.removeItem('returnUrl'); // Remove returnUrl from storage
+        localStorage.removeItem('returnUrl');
         document.location.replace(returnUrl);
       } else {
-        // If successful, redirect the browser to the profile page
+        // If successful, redirect to user profile
         document.location.replace('/profile');
       }
     } else {
-      alert(response.statusText);
+      alert('Invalid username/password entered');
     }
   }
 };
@@ -34,23 +34,28 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
+  // Collect values from signup form
   const name = document.querySelector('#name-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const phone = document.querySelector('#phone-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
   if (name && email && phone && password) {
+    // Send POST request to API endpoint
     const response = await fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({ name, email, phone, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
+    // If successful, redirect to user profile
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert(response.statusText);
+      console.error('Error, unable to create new user');
     }
+  } else {
+    alert('Unable to signup. Name/Email/Password are required fields');
   }
 };
 

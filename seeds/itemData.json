@@ -3,18 +3,48 @@
     "name": "Dress Shoes",
     "description": "A nice pair of new dress shoes, size 10, only worn once.",
     "item_price": 80,
-    "image": "image1"
+    "image": "https://res.cloudinary.com/anamarket-project-02/image/upload/v1712222102/itemImages/file_z90yyq.webp"
   },
   {
     "name": "Designer Handbag",
     "description": "Gucci I think, brand new, still has retail tags.",
     "item_price": 5000,
-    "image": "image2"
+    "image": "https://res.cloudinary.com/anamarket-project-02/image/upload/v1712204494/itemImages/file_liznmp.webp"
   },
   {
     "name": "Car Parts",
     "description": "Car broke down, $500 up-front, come take whatever you want out of it.",
     "item_price": 500,
-    "image": "image3"
+    "image": "https://res.cloudinary.com/anamarket-project-02/image/upload/v1712222873/itemImages/file_zptmoj.jpg"
+  },
+  {
+    "name": "Potted Plants",
+    "description": "Various succulents, yours may not look like the photo.",
+    "item_price": 20,
+    "image": "https://res.cloudinary.com/anamarket-project-02/image/upload/v1712205177/itemImages/file_j1dkf9.jpg"
+  },
+  {
+    "name": "New BMW",
+    "description": "Pretty much brand-new, blue exterior, 10k miles",
+    "item_price": 20000,
+    "image": "https://res.cloudinary.com/anamarket-project-02/image/upload/v1712035114/itemImages/file_iwoukf.jpg"
+  },
+  {
+    "name": "Burger",
+    "description": "Actually just a printed photo of a burger.",
+    "item_price": 10,
+    "image": "https://res.cloudinary.com/anamarket-project-02/image/upload/v1712203169/itemImages/file_mqby4o.jpg"
+  },
+  {
+    "name": "Burger Eating Service",
+    "description": "I promise I'll use this money to buy burgers. I will not be providing proof that I have.",
+    "item_price": 100,
+    "image": "https://res.cloudinary.com/anamarket-project-02/image/upload/v1712204533/itemImages/file_bghcc1.jpg"
+  },
+  {
+    "name": "Fake Potted Plant",
+    "description": "3D model of a succulent in a pot, not a real plant.",
+    "item_price": 50,
+    "image": "https://res.cloudinary.com/anamarket-project-02/image/upload/v1712205518/itemImages/file_prjhhr.jpg"
   }
 ]

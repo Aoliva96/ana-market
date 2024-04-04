@@ -1,5 +1,3 @@
-// TODO: Import Cloudinary and link key values from .env file
-
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
