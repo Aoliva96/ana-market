@@ -27,11 +27,11 @@ Concept:
 A Facebook marketplace / Craigslist inspired e-commerce app.
 
 Features:
-User can create, read, delete, update their own listing
-Users that are not logged in can only see the listing preview w/ image, item name, price
-User must be logged in to see the seller’s name, contact info, item description, etc.
-Profile creation, profile page with list of user’s added listings
-Dashboard with a gallery of items for sale
+- User can create, read, delete, update their own listing
+- Users that are not logged in can only see the listing preview w/ image, item name, price
+- User must be logged in to see the seller’s name, contact info, item description, etc.
+- Profile creation, profile page with list of user’s added listings
+- Dashboard with a gallery of items for sale
 
 
 ![Screenshot of deployed project](./assets/images/ana-market-eae58deca7b8.herokuapp.com_.png)
