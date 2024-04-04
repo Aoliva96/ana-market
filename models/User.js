@@ -1,3 +1,5 @@
+// TODO (stretch-goal): Add additional validation for user input
+
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');

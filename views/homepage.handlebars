@@ -3,8 +3,6 @@
   <div class='row mb-4 item'>
     <div class='col-md-5'>
       <h2>
-        <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-        <!-- {{{get_emoji}}} -->
         <a href='/item/{{item.id}}'>{{item.name}}</a>
       </h2>
       <p>Price:
@@ -18,7 +16,13 @@
       {{#if image}}
         <img
           src='{{image}}'
-          alt='Item Image'
+          alt='Item image'
+          style='max-width: 100%; height: auto;'
+        />
+      {{else}}
+        <img
+          src='https://placehold.co/800/4B244A/98C1D9?text=No+Image&font=pt-sans'
+          alt='Item image placeholder'
           style='max-width: 100%; height: auto;'
         />
       {{/if}}

@@ -1,6 +1,3 @@
-// TODO: Change all instances of 'project' to 'item' (keep same pluralization & capitalization)
-// TODO: Contextually change all instances of 'funding' to 'price'
-
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 

@@ -4,12 +4,11 @@ const withAuth = require('../../utils/auth');
 const parser = require('../../utils/cloudinary');
 const cloudinary = require('cloudinary').v2;
 
-// Create new item from form
+// Create new item
 router.post('/', withAuth, parser.single('image'), async (req, res) => {
   try {
     console.log('Request Body:', req.body);
     const imageUrl = req?.file?.path || null;
-    // const imageUrl = req.file ? req.file.secure_url : null;
 
     const newItem = await Item.create({
       ...req.body,
@@ -24,7 +23,7 @@ router.post('/', withAuth, parser.single('image'), async (req, res) => {
   }
 });
 
-//update
+// Update existing item
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const itemData = await Item.update(
@@ -49,8 +48,8 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
-// Delete existing item from list
-router.delete('/:id', withAuth, parser.single('image'), async (req, res) => {
+// Delete existing item
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const itemData = await Item.destroy({
       where: {
@@ -64,18 +63,18 @@ router.delete('/:id', withAuth, parser.single('image'), async (req, res) => {
       return;
     }
 
-    // Delete image from Cloudinary storage
+    // Delete item image from Cloudinary
     const deleteCloudinary = await cloudinary.v2.uploader.destroy(
       itemData.imagePublicId
     );
     if (deleteCloudinary) {
       res.status(200).json({ message: 'Item deleted from Cloudinary!' });
     } else {
-      console.log('Image not deleted from cloudinary');
-      // Send response indicating that item was deleted but image deletion failed
+      console.log('Image not deleted from Cloudinary');
+      // Response for DB Item deletion success & Cloudinary img deletion failure
       res
         .status(200)
-        .json({ message: 'Item deleted, but image deletion failed.' });
+        .json({ message: 'Item deleted, but image deletion failed' });
     }
   } catch (err) {
     res.status(500).json(err);

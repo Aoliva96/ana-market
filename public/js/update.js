@@ -5,29 +5,13 @@ function redirectToLoginPage() {
   window.location.href = '/login';
 }
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   const contactButton = document.getElementById('toggle-contact-info');
-//   const contactInfo = document.getElementById('contact-info');
-//   if (contactButton && contactInfo) {
-//     contactButton.addEventListener('click', function () {
-//       if (contactInfo.style.display === 'none') {
-//         contactInfo.style.display = 'block';
-//         contactButton.textContent = 'Hide Contact Information';
-//       } else {
-//         contactInfo.style.display = 'none';
-//         contactButton.textContent = 'Contact Seller';
-//       }
-//     });
-//   }
-// });
-
-//contact seller button
+// Contact Seller button show/hide
 const contactButtonHandler = async (event) => {
   event.preventDefault();
+
   const contactInfo = document.getElementById('contact-info');
-  // contactInfo.style.display = 'block';
   const contactButton = document.querySelector('.contact-button');
-  // button.style.display = 'none';
+
   if (contactInfo.style.display === 'none') {
     contactInfo.style.display = 'block';
     contactButton.textContent = 'Hide Contact Information';
@@ -37,23 +21,29 @@ const contactButtonHandler = async (event) => {
   }
 };
 
-//update button functionality
+// Edit item button
 const editButtonHandler = async (event) => {
   event.preventDefault();
-
-  //   //get the id from the window.location
 
   const form = document.querySelector('.update-item-form');
   form.style.display = 'block';
 };
+
+// Edit item form submit button
 const editSubmitHandler = async (event) => {
+  event.preventDefault();
+
+  // Collect form values
   const name = document.querySelector('#update-item-name').value.trim();
   const item_price = document.querySelector('#update-item-price').value.trim();
   const description = document.querySelector('#update-item-desc').value.trim();
-  const pathname = window.location.pathname;
-  const parts = pathname.split('/');
-  const id = parts[parts.length - 1];
-  //the put request to the item/:id
+
+  // Collect item ID
+  const pathName = window.location.pathname;
+  const pathParts = pathName.split('/');
+  const id = pathParts[pathParts.length - 1];
+
+  // PUT request to item/:id
   if (id && name && item_price && description) {
     const response = await fetch(`/api/items/${id}`, {
       method: 'PUT',
@@ -66,20 +56,18 @@ const editSubmitHandler = async (event) => {
         'Content-Type': 'application/json',
       },
     });
-    console.log(response);
-    //if the response is ok replace the page with the updated item
+
+    // If response ok replace item with updated values
     if (response.ok) {
-      console.log('Update was pushed');
+      alert('Listing updated successfully');
       document.location.replace(`/item/${id}`);
     } else {
-      consol.log('Failed to edit item, response was not OK');
+      console.error('Error editing item');
+      alert('Unable to edit listing');
     }
-  } else {
-    console.log('This whole if statement did not work, the PUT method');
   }
-
-  console.log('Edit button was clicked');
 };
+
 document
   .querySelector('.contact-button')
   .addEventListener('click', contactButtonHandler);

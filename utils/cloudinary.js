@@ -3,6 +3,7 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const multer = require('multer');
 require('dotenv').config();
 
+// TODO (stretch-goal): Check if setting 'secure: true' fixes Cloudinary image delete issue
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUD_API_KEY,
