@@ -34,7 +34,7 @@ Features:
 - Dashboard with a gallery of items for sale
 
 
-![Screenshot of deployed project](./assets/images/ana-market-eae58deca7b8.herokuapp.com_.png)
+![Screenshot of deployed project](/media/project_screenshot.png)
 
 ## Deployment
 
