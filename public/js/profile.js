@@ -24,17 +24,18 @@ const newFormHandler = async (ev) => {
       body: formData,
     }).then((res) => res.json());
 
-    if (response.ok) {
+    if (response.ok && responseData.success) { 
       alert('New item created!');
       document.location.replace('/profile');
-      console.log(response);
+      console.log(responseData);
     } else {
+      
       document.location.replace('/profile');
-      console.log(response);
-      alert('Failed to create Item!');
+      console.log(responseData);
     }
   } catch (error) {
-    alert('Failed to create Item!');
+    console.error('Error creating item:', error);
+    
   }
 };
 
@@ -93,13 +94,17 @@ const delButtonHandler = async (event) => {
       method: 'DELETE',
     });
 
+    console.log('Response status:', response.status); // Log response status
+
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete item');
+      const errorMessage = await response.text(); // Get error message from response body
+      console.error('Failed to delete item:', errorMessage);
+      document.location.replace('/profile');
     }
   } else {
-    console.log('the delete DOES NOT works');
+    console.log('the delete DOES NOT work');
   }
 };
 
