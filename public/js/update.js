@@ -5,21 +5,37 @@ function redirectToLoginPage() {
   window.location.href = '/login';
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const contactButton = document.getElementById('toggle-contact-info');
+// document.addEventListener('DOMContentLoaded', function () {
+//   const contactButton = document.getElementById('toggle-contact-info');
+//   const contactInfo = document.getElementById('contact-info');
+//   if (contactButton && contactInfo) {
+//     contactButton.addEventListener('click', function () {
+//       if (contactInfo.style.display === 'none') {
+//         contactInfo.style.display = 'block';
+//         contactButton.textContent = 'Hide Contact Information';
+//       } else {
+//         contactInfo.style.display = 'none';
+//         contactButton.textContent = 'Contact Seller';
+//       }
+//     });
+//   }
+// });
+
+//contact seller button
+const contactButtonHandler = async (event) => {
+  event.preventDefault();
   const contactInfo = document.getElementById('contact-info');
-  if (contactButton && contactInfo) {
-    contactButton.addEventListener('click', function () {
-      if (contactInfo.style.display === 'none') {
-        contactInfo.style.display = 'block';
-        contactButton.textContent = 'Hide Contact Information';
-      } else {
-        contactInfo.style.display = 'none';
-        contactButton.textContent = 'Contact Seller';
-      }
-    });
+  // contactInfo.style.display = 'block';
+  const contactButton = document.querySelector('.contact-button');
+  // button.style.display = 'none';
+  if (contactInfo.style.display === 'none') {
+    contactInfo.style.display = 'block';
+    contactButton.textContent = 'Hide Contact Information';
+  } else {
+    contactInfo.style.display = 'none';
+    contactButton.textContent = 'Contact Seller';
   }
-});
+};
 
 //update button functionality
 const editButtonHandler = async (event) => {
@@ -64,7 +80,9 @@ const editSubmitHandler = async (event) => {
 
   console.log('Edit button was clicked');
 };
-
+document
+  .querySelector('.contact-button')
+  .addEventListener('click', contactButtonHandler);
 document
   .querySelector('.edit-button')
   .addEventListener('click', editButtonHandler);

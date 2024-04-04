@@ -12,13 +12,13 @@
       Price:
       <span class='dollar-amount'> ${{format_amount item_price}}</span>
     </p>
-    <div id='contact-info'>
+    <div id="contact-info" style="display:none">
       <p>Contact Seller:</p>
       <p>Email: {{user.email}}</p>
       <p>Phone: {{user.phone}}</p>
     </div>
     <p>
-      <button id='toggle-contact-info' class='btn btn-primary'>Contact Seller</button>
+      <button type="submit" id='toggle-contact-info' class='btn btn-primary contact-button'>Contact Seller</button>
       <button type="submit" id='toggle-contact-info' class='btn btn-primary edit-button'>Edit Listing</button>  
     </p>
   {{else}}
