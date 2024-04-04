@@ -53,9 +53,13 @@ https://github.com/nlopez39
 
 See the links below to see some of the resources I used for this project:
 
-[link title placeholder](#)
+https://coding-boot-camp.github.io/full-stack/heroku/heroku-deployment-guide
 
-I also referenced ( in class activity names/numbers ).
+https://coding-boot-camp.github.io/full-stack/heroku/deploy-with-heroku-and-mysql
+
+https://cloudinary.com/
+
+https://github.com/johnfyoung/multer-cloudinary
 
 ## License
 
