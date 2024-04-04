@@ -17,11 +17,11 @@ In today’s fast-paced world, finding a convenient and reliable way to buy, sel
 
 ## Problem
 
-Many Online Marketplaces suffer from cluttered and outdated interfaces and unorganized listings, making it challenging for users to find what they’re looking for efficiently. Some existing marketplaces may charge high transaction fees or commissions, cutting into the profits of sellers and increasing the overall cost f
+Many Online Marketplaces suffer from cluttered and outdated interfaces and unorganized listings, making it challenging for users to find what they’re looking for efficiently. Some existing marketplaces may charge high transaction fees or commissions, cutting into the profits of sellers and increasing the overall cost.
 
 ## Solution
 
-MarketHub addresses these challenges by offering a revolutionary platform designed to streamline the marketplace for users. 
+ANA Market addresses these challenges by offering a revolutionary platform designed to streamline the marketplace for users. 
 
 Concept:
 A Facebook marketplace / Craigslist inspired e-commerce app.
@@ -34,19 +34,20 @@ Profile creation, profile page with list of user’s added listings
 Dashboard with a gallery of items for sale
 
 
-![Screenshot of deployed project](assets/images/project-screenshot.png)
+![Screenshot of deployed project](./assets/images/ana-market-eae58deca7b8.herokuapp.com_.png)
 
 ## Deployment
 
 [Link to the GitHub repo for this project](https://github.com/Aoliva96/)
 
-[Link to the deployed project on GitPages](https://aoliva96.github.io/)
+[Link to the deployed project on Heroku](https://ana-market-eae58deca7b8.herokuapp.com/)
 
 ## Collaborators
 
-@Aster
-@Ajay
-@Nelly
+https://github.com/Aoliva96
+https://github.com/KALOTYA
+https://github.com/nlopez39
+
 
 ## Resources
 
