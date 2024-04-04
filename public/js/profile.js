@@ -24,18 +24,16 @@ const newFormHandler = async (ev) => {
       body: formData,
     }).then((res) => res.json());
 
-    if (response.ok && responseData.success) { 
+    if (response.ok && responseData.success) {
       alert('New item created!');
       document.location.replace('/profile');
       console.log(responseData);
     } else {
-      
       document.location.replace('/profile');
       console.log(responseData);
     }
   } catch (error) {
     console.error('Error creating item:', error);
-    
   }
 };
 
@@ -113,5 +111,5 @@ document
   .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('.item-list')
+  .querySelector('.delete-button')
   .addEventListener('click', delButtonHandler);
