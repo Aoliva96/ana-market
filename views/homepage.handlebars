@@ -1,31 +1,36 @@
 <!-- Loop over each object in the items array -->
-{{#each items as |item|}}
-  <div class='row mb-4 item'>
-    <div class='col-md-5'>
-      <h2>
-        <a href='/item/{{item.id}}'>{{item.name}}</a>
-      </h2>
-      <p>Price:
-        <!-- Pass item price value to the helper function -->
-        <span class='dollar-amount'>${{format_amount item.item_price}}</span>
-      </p>
-      <p>Date Listed:
-        {{format_date item.date_created}}</p>
+<div id='mainTitle'>
+  <h2>Browse current listings</h2>
+</div>
+<div class='divider mt-5'></div>
+<div class='row justify-space-between'>
+  {{#each items as |item|}}
+    <div class='col md-3 item'>
+      <div class='homeImage'>
+        {{#if image}}
+          <a href='/item/{{item.id}}'><img
+              src='{{image}}'
+              alt='Item Image'
+            /></a>
+        {{else}}
+          <a href='/item/{{item.id}}'><img
+              src='https://placehold.co/800/4B244A/98C1D9?text=No+Image&font=pt-sans'
+              alt='Item image placeholder'
+            /></a>
+        {{/if}}
+      </div>
+      <div class='itemText'>
+        <h3>
+          <a href='/item/{{item.id}}'>{{item.name}}</a>
+        </h3>
+        <p>Date Listed:
+          {{format_date item.date_created}}
+        </p>
+        <p>Price:
+          <!-- Pass item price value to the helper function -->
+          <span class='dollar-amount'>${{format_amount item.item_price}}</span>
+        </p>
+      </div>
     </div>
-    <div class='col-md-7'>
-      {{#if image}}
-        <img
-          src='{{image}}'
-          alt='Item image'
-          style='max-width: 100%; height: auto;'
-        />
-      {{else}}
-        <img
-          src='https://placehold.co/800/4B244A/98C1D9?text=No+Image&font=pt-sans'
-          alt='Item image placeholder'
-          style='max-width: 100%; height: auto;'
-        />
-      {{/if}}
-    </div>
-  </div>
-{{/each}}
+  {{/each}}
+</div>

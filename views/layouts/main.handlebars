@@ -10,26 +10,35 @@
   </head>
 
   <body>
-    <div class='flex-column justify-space-around'>
+    <div id='bodyContainer' class='flex-column justify-space-around'>
       <header class='display-flex justify-space-between align-center p-2'>
         <h1>
           <a href='/'><img
               src='/media/project_logo.svg'
               aria-label='Shopping Basket Logo'
-              style='height: 2.5rem; width: auto;'
             /></a>
           <a href='/'>ANA Market</a>
         </h1>
-        <nav>
-          <!-- Conditionally render login or logout links -->
+        <!-- Conditionally render nav elements -->
+        <div id="navContainer">
+          <nav>
+            {{#if logged_in}}
+              <button class='no-button navItem' id='logout'>Logout</button>
+              |
+              <a href='/profile' class="navItem">Profile</a>
+            {{else}}
+              <a href='/login'>Login</a>
+            {{/if}}
+          </nav>
           {{#if logged_in}}
-            <a href='/profile'>profile</a>
-            |
-            <button class='no-button' id='logout'>logout</button>
-          {{else}}
-            <a href='/login'>login</a>
+            {{!-- Render default avatar (TODO: Add avatar upload functionality) --}}
+            <a href='/profile'>
+              <img src="/media/default_user_img.svg" id='profileImage'/>
+                {{name.getFirstLetter}}
+              </img>
+            </a>
           {{/if}}
-        </nav>
+        </div>
       </header>
       <main class='container container-fluid mt-5'>
         <!-- Render the sub layout -->
