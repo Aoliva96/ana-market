@@ -1,5 +1,41 @@
-header, .item:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+/* Header */
+
+header {
+  background-color: #4b244a;
+  border-bottom: 2px solid #533a7b;
+  padding: 20px;
+}
+
+header * {
+  color: #98c1d9;
+}
+
+header img {
+  height: 2.5rem;
+  width: auto;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+h1 > a:hover {
+  color: #98c1d9;
+  text-decoration: none;
+}
+
+/* Nav */
+
+#navContainer {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+nav {
+  font-size: 20px;
+}
+
+nav a:hover {
+  color: #5fa2c9;
 }
 
 .no-button {
@@ -7,18 +43,110 @@ header, .item:not(:last-child) {
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: #98c1d9;
   text-decoration: none;
   font-size: 100%;
 }
 
 .no-button:hover {
-  color: #065b83;
+  color: #5fa2c9;
   text-decoration: underline;
 }
 
+#profileImage {
+  height: 3.5rem;
+  width: 3.5rem;
+  border: solid 2px #98c1d9;
+  border-radius: 50%;
+  color: #4b244a;
+  background-color: #6969b3;
+  object-fit: cover;
+  object-position: 50% 100%;
+  margin-top: 2px;
+}
+
+#profileImage:hover {
+  border: solid 2px #5fa2c9;
+}
+
+/* Body */
+
+body {
+  background-color: #25171a;
+}
+
+#bodyContainer {
+  color: #98c1d9;
+}
+
+#mainTitle {
+  margin-left: -10px;
+}
+
+#itemTitle {
+  margin-left: -10px;
+}
+
+.divider {
+  background-color: #533a7b;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 8px;
+}
+
+.divSpacer {
+  margin-bottom: 32px;
+}
+
+/* Homepage Content */
+
+.item {
+  width: 18em;
+  display: inline-block;
+  margin: 5px;
+  margin-top: 15px;
+}
+
+.itemText {
+  border-bottom: 2px solid #533a7b;
+}
+
+.homeImage img {
+  height: 20em;
+  width: 18em;
+  object-fit: cover;
+  object-position: 50% 100%;
+  border: 2px solid #533a7b;
+  margin-bottom: 1em;
+}
+
+main a {
+  color: #98c1d9;
+}
+
+main a:hover {
+  color: #5fa2c9;
+  text-decoration: none;
+}
+
 .dollar-amount {
-  color: #056605;
   font-weight: bold;
-  margin-left: -5px;
+}
+
+/* Item Page Content */
+
+.itemImage img {
+  height: 60%;
+  width: 55%;
+  object-fit: cover;
+  object-position: 50% 100%;
+  border: 2px solid #533a7b;
+  margin-bottom: 1em;
+}
+
+/* Footer */
+
+footer {
+  height: 5rem;
+  width: auto;
 }

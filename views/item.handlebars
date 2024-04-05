@@ -1,19 +1,18 @@
-<div class='text-center'>
+<div id='itemTitle'>
+  <h2>View listing</h2>
+</div>
+<div class='divider divSpacer mt-5'></div>
+<div class='text-center itemImage'>
   {{#if logged_in}}
-    <h2>{{name}}</h2>
     {{#if image}}
-      <img
-        src='{{image}}'
-        alt='Item image'
-        style='max-width: 100%; height: auto;'
-      />
+      <img src='{{image}}' alt='Item image' />
     {{else}}
       <img
         src='https://placehold.co/800/4B244A/98C1D9?text=No+Image&font=pt-sans'
         alt='Item image placeholder'
-        style='max-width: 100%; height: auto;'
       />
     {{/if}}
+    <h2>{{name}}</h2>
     <p>{{description}}</p>
     <p>Listed by {{user.name}} on {{format_date date_created}}</p>
     <p>
@@ -31,6 +30,9 @@
         id='toggle-contact-info'
         class='btn btn-primary contact-button'
       >Contact Seller</button>
+      {{! TODO: Fix duplicate button id }}
+      {{! TODO: Only show edit button on user's own listings }}
+      {{! TODO: Add 'Cancel Edit' button }}
       <button
         type='submit'
         id='toggle-contact-info'
@@ -46,8 +48,8 @@
 
   {{/if}}
 </div>
-{{! update listing }}
-<div class='row mt-4'>
+{{! Update listing form }}
+<div class='row mt-4' style=''>
   <div class='col-md-6'>
 
     <form class='form update-item-form' style='display:none'>
